@@ -95,7 +95,7 @@ export default function Home() {
 
   const displayData = activeHistory !== null ? history[activeHistory]?.data : data
 
-  const filtered = useCallback((arr: { platform: string }[]) => {
+  const filtered = useCallback(<T extends { platform: string }>(arr: T[]): T[] => {
     if (platform === 'all') return arr
     return arr.filter(i => i.platform === platform || i.platform === 'all')
   }, [platform])
